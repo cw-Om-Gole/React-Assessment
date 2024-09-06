@@ -21,6 +21,7 @@ const Card = ({carDetails}) => {
                                 &nbsp;&nbsp;|&nbsp;&nbsp;
                                 {getCarLocation(carDetails)}
                             </p>
+                            <h2 className="card-price">{carDetails.price}</h2>
                             <div className="card-footer">
                                 <a className="btn">Get Seller Details</a>
                             </div>
