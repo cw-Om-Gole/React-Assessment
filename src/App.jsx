@@ -51,7 +51,6 @@ function App() {
 
   useEffect(() => {
     getCars();
-    // if (sortOrder !== "default") handleSort(cars);
   }, [apiURL]);
 
   useEffect(() => {
@@ -69,10 +68,6 @@ function App() {
       if (min === "") {
         newBudgetString = `budget=0-${max}`;
       } else {
-        if (Number(min) > Number(max)) {
-          alert("Invalid Input");
-          return;
-        }
         newBudgetString = `budget=${min}-${max}`;
       }
     }
@@ -93,26 +88,6 @@ function App() {
 
   }, [selectedFuels, min, max]);
 
-  // const handleSort = (cars) => {
-  //   if(sortOrder === "default") {
-  //     getCars();
-  //     return;
-  //   }
-
-  //   console.log("sort");
-
-  //   const sortedCars = [...cars].sort((a, b) => {
-  //     if (sortOrder === 'asc') {
-  //       return Number(a.priceNumeric) - Number(b.priceNumeric);
-  //     } else if (sortOrder === 'desc') {
-  //       return Number(b.priceNumeric) - Number(a.priceNumeric);
-  //     }
-
-  //     return 0;
-  //   });
-
-  //   setCars(sortedCars);
-  // }
 
   const handleClear = (e) => {
     e.preventDefault();
@@ -123,13 +98,6 @@ function App() {
     setSortOrder("default");
   }
 
-  // useEffect(() => {
-  //   handleSort(cars);
-  // }, [sortOrder]);
-
-  useEffect(() => {
-    console.log(cars);
-  }, [cars])
 
   if (loading) {
     return <div>Loading</div>;
