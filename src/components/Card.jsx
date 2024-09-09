@@ -1,12 +1,9 @@
 import React from 'react';
 import './Card.css';
+import { getCarLocation } from '../utils/utils';
 
 const Card = ({carDetails}) => {
 
-
-    const getCarLocation = (carDetails) => {
-        return carDetails.areaName + "," + " " + carDetails.cityName;
-    }
 
     return (
         <>

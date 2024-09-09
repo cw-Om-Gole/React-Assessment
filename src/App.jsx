@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import './App.css'
-import Card from './components/card'
+import Card from './components/Card'
 import Fueltype from './components/Fueltype';
 import axios from 'axios'
 
@@ -69,10 +69,6 @@ function App() {
       if (min === "") {
         newBudgetString = `budget=0-${max}`;
       } else {
-        if (Number(min) > Number(max)) {
-          alert("Invalid Input");
-          return;
-        }
         newBudgetString = `budget=${min}-${max}`;
       }
     }
@@ -131,13 +127,13 @@ function App() {
     console.log(cars);
   }, [cars])
 
-  if (loading) {
-    return <div>Loading</div>;
-  }
+  // if (loading) {
+  //   return <div>Loading</div>;
+  // }
 
-  if (cars.length == 0) {
-    return <div>No cars found</div>;
-  }
+  // if (cars.length == 0) {
+  //   return <div>No cars found</div>;
+  // }
 
   return (
     <div className="container">
@@ -148,11 +144,11 @@ function App() {
         </div>
 
         <div className="filter-group">
-          <label>Budget (Lakh)</label>
+          <label htmlFor="budget">Budget</label>
           <div className="budget-container">
-            <input type="number" min="0" value={min} onChange={handleMin} />
+            <input id="budget" type="number" min="0" value={min} onChange={handleMin} placeholder='0'/>
             <span> - </span>
-            <input type="number" min="1" value={max} onChange={handleMax} />
+            <input id="budget" type="number" min="1" value={max} onChange={handleMax} placeholder='21'/>
           </div>
         </div>
 
@@ -161,7 +157,7 @@ function App() {
           <h2>Fuel</h2>
 
           {Object.entries(fuelMap).map(([key, value]) => (
-            <Fueltype fueltype={key} fuelNumber={value} selectedFuels={selectedFuels} setSelectedFuels={setSelectedFuels} />
+            <Fueltype key={value} fueltype={key} fuelNumber={value} selectedFuels={selectedFuels} setSelectedFuels={setSelectedFuels} />
           ))}
 
         </div>
@@ -187,7 +183,7 @@ function App() {
             }
 
             return 0;
-          }).map(car => <Card carDetails={car} />)}
+          }).map((car,i) => <Card key={i} carDetails={car} />)}
 
         </div>
       </div>

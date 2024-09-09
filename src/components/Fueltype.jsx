@@ -1,13 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import "./FuelType.css";
+import {capitalizeFirstLetter} from '../utils/utils'
 
 const Fueltype = ({ fueltype, fuelNumber, setSelectedFuels, selectedFuels}) => {
-    
-
-    function capitalizeFirstLetter(word) {
-        if (!word) return '';
-        return word.charAt(0).toUpperCase() + word.slice(1);
-    }
 
     const handleCheck = (e) => {
       const { checked } = e.target;
@@ -20,12 +15,10 @@ const Fueltype = ({ fueltype, fuelNumber, setSelectedFuels, selectedFuels}) => {
       })
     }
 
-
-
   return (
     <div className="checkbox-container">
         <input type="checkbox" id={fueltype} name={fueltype} onChange={handleCheck} checked={selectedFuels.includes(fuelNumber)}/>
-        <label for={fueltype}>{capitalizeFirstLetter(fueltype)}</label>
+        <label htmlFor={fueltype}>{capitalizeFirstLetter(fueltype)}</label>
     </div>
   )
 }
