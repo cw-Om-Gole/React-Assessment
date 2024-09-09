@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Fueltype Component Snapshot matches the snapshot when checkbox is checked 1`] = `
+<DocumentFragment>
+  <div
+    class="checkbox-container"
+  >
+    <input
+      checked=""
+      id="diesel"
+      name="diesel"
+      type="checkbox"
+    />
+    <label
+      for="diesel"
+    >
+      Diesel
+    </label>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Fueltype Component Snapshot matches the snapshot when checkbox is unchecked 1`] = `
+<DocumentFragment>
+  <div
+    class="checkbox-container"
+  >
+    <input
+      id="diesel"
+      name="diesel"
+      type="checkbox"
+    />
+    <label
+      for="diesel"
+    >
+      Diesel
+    </label>
+  </div>
+</DocumentFragment>
+`;
